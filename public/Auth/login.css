@@ -1,0 +1,105 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #001f3f, #f39c12); /* Gradient background */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: white;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Section for the image */
+.image-section {
+    flex: 1.5;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Section for the form */
+.form-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f9f9f9;
+}
+
+.form-section .opening-text,
+.form-section .name {
+    color: #001f3f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-section .form-field {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-section .form-field input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 25px;
+    color: #1b2a4e;
+}
+
+
+.form-section .form-field span.fas.fa-key,
+.form-section .form-field span.far.fa-user {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1b2a4e;
+}
+
+.form-section .form-field span.far.fa-eye,
+.form-section .form-field span.far.fa-eye-slash {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #1b2a4e;
+}
+
+.form-section button.btn {
+    width: 100%;
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.form-section button.btn:hover {
+    background-color: #e64e4e;
+}
+
+.text-center a {
+    color: #ffb3b3;
+    text-decoration: none;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}

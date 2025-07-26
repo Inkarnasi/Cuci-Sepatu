@@ -1,0 +1,507 @@
+.blog-list-section {
+    padding: 90px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    color: #001f3f;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.search-section {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* Container untuk input dan ikon */
+.search-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+    font-size: 16px;
+    padding-right: 5px; /* Beri ruang untuk ikon X */
+}
+
+.clear-icon {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #888;
+    display: none; /* Tersembunyi secara default */
+}
+
+.search-input:not(:placeholder-shown) ~ .clear-icon {
+    display: inline; /* Tampilkan ikon X saat input tidak kosong */
+}
+
+.clear-icon:hover {
+    color: #ff6b6b; /* Warna merah untuk hover */
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background-color: #001f3f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 5px;
+}
+
+.search-btn:hover {
+    background-color: #f39c12;
+}
+
+/* Saran pencarian yang lebih modern */
+.suggestion-badge-container {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    max-width: 1100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-badge {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.suggestion-list {
+    display: flex;
+    flex-wrap: wrap; /* Membuat elemen berpindah ke bawah jika ruang habis */
+    gap: 10px; /* Jarak antar elemen */
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.suggestion-item {
+    flex: 1 0 auto; /* Membuat item fleksibel */
+    max-width: calc(
+        33% - 10px
+    ); /* Atur persentase sesuai kebutuhan untuk responsivitas */
+    box-sizing: border-box;
+}
+
+.suggestion-item .suggestion-link {
+    display: block;
+    text-align: left; /* Agar konten berada di sisi kiri */
+    padding: 10px 15px;
+    white-space: nowrap; /* Agar teks tidak terpotong ke bawah */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Memberikan "..." jika teks terlalu panjang */
+}
+
+.suggestion-item .suggestion-link:hover {
+    background-color: #f0f8ff;
+    border-color: #3498db;
+    color: #1d6fa5;
+}
+
+.suggestion-value {
+    font-weight: 500;
+}
+
+.suggestion-source {
+    font-size: 12px;
+    color: #888;
+    margin-left: 5px;
+}
+
+.suggestion-link {
+    position: relative;
+    display: inline-block;
+    cursor: pointer; /* Tambahkan pointer untuk menunjukkan bahwa elemen dapat di-hover */
+}
+
+@media (max-width: 768px) {
+    .suggestion-item {
+        max-width: calc(50% - 10px); /* 2 kolom pada layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    .suggestion-item {
+        max-width: 100%; /* 1 kolom pada layar sangat kecil */
+    }
+}
+
+.filter-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.filter-input {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    background-color: #001f3f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #f39c12;
+}
+.section-description {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.blog-content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Two-thirds for blogs, one-third for sidebar */
+    gap: 30px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.blog-card.placeholder {
+    visibility: hidden;
+}
+
+.blog-card {
+    flex: 1 1 calc(33.333% - 30px); /* Setiap elemen mengambil 1/3 dari lebar, dengan margin */
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    min-height: 400px; /* Ketinggian minimum yang sama untuk semua kartu */
+    display: flex;
+    flex-direction: column; /* Untuk menjaga konten di dalam kartu seimbang */
+    justify-content: space-between; /* Memastikan konten terisi dengan baik */
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 125, 255, 0.12);
+}
+
+.blog-image img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.blog-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.blog-content h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.blog-category {
+    display: inline-block;
+    background-color: #f39c12;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.read-more-btn {
+    font-size: 14px;
+    color: #fff;
+    background-color: #001f3f;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #f39c12;
+}
+
+/* Sidebar Section */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Categories Section */
+.categories-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06); /* Shadow lebih terlihat */
+    transition: box-shadow 0.3s ease;
+    border: 1px solid #eee; /* Garis tipis di sekeliling untuk memberi kesan terstruktur */
+}
+
+.categories-section h3 {
+    font-size: 24px; /* Ukuran yang nyaman dan tegas */
+    color: #001f3f;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 700; /* Lebih bold agar lebih menarik perhatian */
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list li {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd; /* Garis bawah pada setiap kategori */
+}
+
+.category-list li:last-child {
+    border-bottom: none; /* Menghilangkan garis pada item terakhir */
+}
+
+.category-list li a {
+    color: #001f3f;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative; /* Untuk hover effect */
+    padding-left: 5px; /* Ruang kecil di kiri */
+    transition: all 0.3s ease;
+}
+
+.category-list li a::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    bottom: 0;
+    width: 4px;
+    height: 0;
+    background-color: #f39c12; /* Warna oranye untuk efek */
+    transition: height 0.3s ease;
+}
+
+.category-list li a:hover::before {
+    height: 100%; /* Garis akan muncul dari bawah ke atas saat hover */
+}
+
+.category-list li a:hover {
+    color: #f39c12; /* Mengubah warna teks menjadi oranye saat hover */
+}
+
+/* Popular Posts Section */
+.popular-posts-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.popular-posts-section h3 {
+    font-size: 24px;
+    color: #001f3f;
+    margin-bottom: 20px;
+}
+
+.popular-post-card {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.popular-post-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.popular-post-content {
+    flex: 1;
+    text-align: left;
+}
+
+.popular-post-category {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.popular-post-date {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.popular-post-content h4 {
+    font-size: 18px;
+    color: #001f3f;
+    margin: 0;
+}
+
+.popular-post-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Filter Section */
+.filter-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+/* Label Styling */
+.filter-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Custom Date Input Styling */
+.filter-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-input {
+    -webkit-appearance: none !important; /* Untuk Chrome, Safari */
+    -moz-appearance: none !important; /* Untuk Firefox */
+    appearance: none !important;
+    padding-left: 40px;
+}
+
+.filter-input {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+    padding-left: 40px; /* Ruang untuk ikon kalender di sebelah kiri */
+}
+
+/* Ikon kalender yang kita tambahkan */
+.filter-wrapper::before {
+    all: unset; /* Hapus semua property default */
+    content: "\f073";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 10px;
+    font-size: 18px;
+    color: #f39c12;
+    pointer-events: none;
+}
+
+.filter-input:hover {
+    border-color: #f39c12;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background-color: #001f3f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #f39c12;
+}
+
+/* Custom pagination styles */
+.pagination {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px 0;
+    margin-top: 30px;
+    list-style-type: none;
+}
+
+.pagination .page-item {
+    margin: 0 5px; /* Space between page numbers */
+}
+
+.pagination .page-link {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #001f3f; /* Text color */
+    border: 1px solid #001f3f; /* Border around each page link */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: 500; /* Bold text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover and active state */
+.pagination .page-link:hover,
+.pagination .page-item.active .page-link {
+    background-color: #001f3f; /* Background color on hover/active */
+    color: #fff; /* White text on hover/active */
+    border-color: #f39c12; /* Border remains the same */
+}
+
+/* Disable state for links */
+.pagination .page-item.disabled .page-link {
+    color: #ccc; /* Disabled text color */
+    background-color: #f9f9f9; /* Light background */
+    border-color: #ddd; /* Light border for disabled items */
+    cursor: not-allowed; /* Disabled cursor */
+}
